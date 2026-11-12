@@ -1,0 +1,32 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}My Profile - Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/profile.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="profile-page">
+    <div class="profile-box">
+
+        {% if user.profile_picture %}
+            <img src="{{ asset('images/' ~ user.profile_picture) }}" alt="Profile Picture" class="profile-picture">
+        {% else %}
+            <div class="profile-letter">{{ user.name|first|upper }}</div>
+        {% endif %}
+
+        <h1>{{ user.name }}</h1>
+        <p>{{ user.email }}</p>
+
+        {# TODO (later): handle the upload in a controller, save to public/uploads/profiles/ #}
+        <form class="profile-upload" method="post" enctype="multipart/form-data">
+            <label for="profile_picture"><strong>PROFILE PICTURE</strong></label>
+            <br><br>
+            <input type="file" id="profile_picture" name="profile_picture" accept=".jpg,.jpeg,.png,.webp" required>
+            <br>
+            <button type="submit">UPLOAD PROFILE PICTURE</button>
+        </form>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Create Account - Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/login.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="login-page">
+    <div class="login-box">
+
+        <h1>CREATE ACCOUNT</h1>
+        <p class="login-description">Create an account to reserve a table at Maturan's Art Cafe.</p>
+
+        {# TODO (later): replace with a Symfony FormType (RegistrationType) #}
+        <form method="post">
+
+            <div class="login-group">
+                <label class="login-label">Full Name</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="login-group">
+                <label class="login-label">Email</label>
+                <input type="email" name="email" required>
+            </div>
+
+            <div class="login-group">
+                <label class="login-label">Password</label>
+                <input type="password" name="password" minlength="8"
+                       pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}"
+                       title="Password should contain at least one uppercase letter, one lowercase letter, one number, and one special character."
+                       required>
+                <small class="login-hint">Password should contain at least 8 characters, including one uppercase letter, one lowercase letter, one number, and one special character.</small>
+            </div>
+
+            <div class="login-group">
+                <label class="login-label">Confirm Password</label>
+                <input type="password" name="confirm_password" required>
+            </div>
+
+            <button type="submit" class="login-button">CREATE ACCOUNT</button>
+        </form>
+
+        <p class="login-note">Already have an account? <a href="{{ path('site_login') }}">Log in here</a></p>
+
+    </div>
+</section>
+
+{% endblock %}

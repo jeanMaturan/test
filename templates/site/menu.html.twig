@@ -1,0 +1,72 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Menu - Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/menu.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="menu-page-hero">
+    <div class="menu-hero-content">
+        <p class="menu-small">OUR MENU</p>
+        <h1>SIP.<br><span>CREATE.</span><br>RELAX.</h1>
+        <p class="menu-description">Enjoy carefully crafted drinks and delicious treats made for every creative moment.</p>
+    </div>
+    <div class="menu-hero-image">
+        <img src="{{ asset('images/mainpic.jpg') }}" alt="Maturan's Art Cafe">
+    </div>
+</section>
+
+<section class="menu-section">
+    <div class="menu-section-header">
+        <h2>COFFEE <img src="{{ asset('images/orangeheart.png') }}" alt="" class="heart-icon"></h2>
+        <img src="{{ asset('images/line.png') }}" alt="" class="menu-line">
+    </div>
+
+    <div class="menu-products">
+        {% if coffee_products is empty %}
+            <p class="menu-empty-message">No coffee items available right now. Check back soon!</p>
+        {% else %}
+            {% for product in coffee_products %}
+                {% include 'site/_menu_card.html.twig' with { product: product } only %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</section>
+
+<section class="menu-section menu-pastries">
+    <div class="menu-section-header">
+        <h2>PASTRIES <img src="{{ asset('images/orangeheart.png') }}" alt="" class="heart-icon"></h2>
+        <img src="{{ asset('images/line.png') }}" alt="" class="menu-line">
+    </div>
+
+    <div class="menu-products">
+        {% if pastry_products is empty %}
+            <p class="menu-empty-message">No pastries available right now. Check back soon!</p>
+        {% else %}
+            {% for product in pastry_products %}
+                {% include 'site/_menu_card.html.twig' with { product: product } only %}
+            {% endfor %}
+        {% endif %}
+
+        <div class="menu-text-card">
+            <p class="menu-card-label">SOMETHING SWEET</p>
+            <h3>MADE WITH <span>LOVE</span></h3>
+            <p>Pair your favorite coffee with one of our delicious pastries.</p>
+            <div class="menu-heart">♥</div>
+        </div>
+
+        <div class="menu-text-card dark-menu-card">
+            <p class="menu-card-label">TAKE A BREAK</p>
+            <h3>SIP.<br>CREATE.<br><span>RELAX.</span></h3>
+            <p>Good coffee, good food, and a space made for creativity.</p>
+        </div>
+    </div>
+</section>
+
+<section class="menu-cta">
+    <h2>FIND YOUR <span>FAVORITE.</span></h2>
+    <p>Come visit Maturan's Art Cafe and enjoy something delicious while you create.</p>
+    <a href="{{ path('site_contact') }}" class="hero-btn">VISIT US</a>
+</section>
+
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Join as an Artist | Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/artist_registration.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="artist-registration-page">
+    <div class="artist-registration-box">
+
+        <h1>JOIN AS AN ARTIST</h1>
+        <p class="artist-description">Become part of our Paint &amp; Sip Night and share your creativity with other art lovers at Maturan's Art Cafe.</p>
+
+        <div class="artist-capacity">
+            <strong>Artist Slots:</strong> {{ approved_count }} / {{ max_artists }}
+        </div>
+
+        {% if approved_count >= max_artists %}
+            <div class="error-message">Artist registration is currently full. The maximum of {{ max_artists }} approved artists has been reached.</div>
+        {% else %}
+            {# TODO (later): replace with a Symfony FormType (ArtistApplicationType) #}
+            <form method="post">
+
+                <div class="login-group">
+                    <label class="login-label">ARTIST NAME</label>
+                    <input type="text" name="artist_name" placeholder="Enter your artist name" required>
+                </div>
+
+                <div class="login-group">
+                    <label class="login-label">EMAIL</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
+
+                <div class="login-group">
+                    <label class="login-label">CONTACT NUMBER</label>
+                    <input type="text" name="contact" placeholder="Enter your contact number" required>
+                </div>
+
+                <div class="login-group">
+                    <label class="login-label">ABOUT YOU AS AN ARTIST</label>
+                    <textarea name="bio" placeholder="Tell us about yourself..." rows="5"></textarea>
+                </div>
+
+                <button type="submit" class="login-button">SUBMIT ARTIST APPLICATION</button>
+            </form>
+        {% endif %}
+
+    </div>
+</section>
+
+{% endblock %}

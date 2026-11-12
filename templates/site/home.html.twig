@@ -1,0 +1,266 @@
+{% extends 'site/base.html.twig' %}
+
+{% set show_newsletter = true %}
+{% block title %}Maturan's Art Cafe{% endblock %}
+
+{% block content %}
+<section id="hero" class="hero">
+
+    <div class="hero-content">
+
+        <img src="{{ asset('images/pattern1.png') }}"
+             alt=""
+             class="first-pattern">
+
+        <h1>
+            Sip. Create.<br>
+            <span>Relax.</span>
+        </h1>
+
+        <p>
+            Maturan's Art Cafe is a cozy and inspiring space
+            where coffee, creativity, and community come together.
+        </p>
+
+        <a href="{{ path('site_reservation') }}" class="hero-btn">
+            RESERVE A TABLE
+        </a>
+
+    </div>
+
+    <div class="hero-image">
+        <img src="{{ asset('images/mainpic.jpg') }}" alt="Maturan's Art Cafe">
+    </div>
+
+</section>
+
+   
+    <section id="merch" class="merch">
+
+    <div class="merch-header">
+
+        <div>
+            <h2>TAKE THE ART HOME
+                <img src="{{ asset('images/brownheart.png') }}" alt="" class="heart-icon">
+            </h2>
+
+            <p>
+                Bring a little creativity with you.
+            </p>
+        </div>
+
+        <a href="{{ path('site_merch') }}" class="view-merch">
+            VIEW ALL MERCH ➜
+        </a>
+
+    </div>
+
+    <div class="merch-container">
+
+        <div class="merch-card">
+            <img src="{{ asset('images/tote.png') }}" alt="Maturan's Art Cafe Tote Bag">
+        </div>
+
+        <div class="merch-card">
+            <img src="{{ asset('images/coffeecup.png') }}" alt="Maturan's Art Cafe Cup">
+        </div>
+
+        <div class="merch-card">
+            <img src="{{ asset('images/apron.png') }}" alt="Maturan's Art Cafe Apron">
+        </div>
+    </div>
+    </section>
+
+    
+<section id="bestsellers" class="bestsellers">
+
+    <div class="bestsellers-header">
+
+        <div class="bestsellers-title">
+            <h2>OUR BESTSELLERS</h2>
+
+            <img src="{{ asset('images/line.png') }}"
+                 alt=""
+                 class="bestsellers-brush">
+        </div>
+
+        <a href="{{ path('site_menu') }}" class="view-menu">
+            VIEW FULL MENU ➜
+        </a>
+
+    </div>
+
+
+<div class="products-container" id="productsContainer">
+
+    <div class="product-card">
+        <img src="{{ asset('images/caramelmacchiato.png') }}" alt="Caramel Macchiato">
+        <div class="product-info">
+            <h3>Caramel Macchiato</h3>
+            <p>₱140</p>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <img src="{{ asset('images/icedspanishlatte.png') }}" alt="Iced Spanish Latte">
+        <div class="product-info">
+            <h3>Iced Spanish Latte</h3>
+            <p>₱150</p>
+        </div>
+    </div>
+
+        <div class="product-card">
+      <img src="{{ asset('images/bluberry.jpeg') }}" alt="Blueberry Cheesecake">
+        <div class="product-info">
+            <h3>Blueberry Cheesecake</h3>
+            <p>₱120</p>
+        </div>
+    </div>
+
+
+        <div class="product-card chocolate-card">
+    <img src="{{ asset('images/chocolatelatte.png') }}" alt="Chocolate Latte">
+    <div class="product-info">
+        <h3>Chocolate Latte</h3>
+        <p>₱115</p>
+    </div>
+</div>
+
+</section>
+
+    
+<section id="about" class="about-section">
+
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="{{ asset('images/place.png') }}" alt="Maturan's Art Cafe Interior">
+        </div>
+
+        <div class="about-content">
+
+            <h2>
+                WHERE COFFEE<img src="{{ asset('images/orangeheart.png') }}" alt="" class="heart-icon"> <br>
+                MEETS CREATIVITY
+            </h2>
+            <div class="about-content1">
+                <p>
+                    Maturan's Art Cafe is made from a love for both coffee
+                    and art. We believe that creativity thrives in a cozy
+                    space with great coffee, good food, and inspiring people.
+                </p>
+            </div>
+            <img
+                src="{{ asset('images/pattern2.png') }}"
+                alt=""
+                class="second-pattern"
+            >
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="promotions">
+
+    <div class="event-card">
+
+        <div class="event-info">
+
+            <p class="event-label">UPCOMING EVENT</p>
+
+            <h3>Paint & Sip<br>Night</h3>
+
+            <p class="event-description">
+                Paint, sip, unwind, and let your art & creativity light for artists and art lovers.
+            </p>
+
+            <p class="event-date">
+                ▣ December 4, 2027 • 5:00 PM
+            </p>
+
+            <a href="{{ path('site_events') }}" class="event-btn">
+                JOIN NOW
+            </a>
+
+        </div>
+
+        <div class="event-image">
+            <img src="{{ asset('images/eventpic.png') }}" alt="Paint and Sip Night">
+        </div>
+
+    </div>
+
+
+    <div class="special-card">
+
+        <div class="special-text">
+            <div class="special-label1">
+                <p class="special-label">OPENING SPECIAL ! ! !</p>
+            </div> 
+
+            <h3>20% OFF</h3>
+
+            <p>on all drinks and pastries</p>
+
+            <img src="{{ asset('images/whiteheart.png') }}" alt="" class="heart-small">
+
+            <div class="limited">
+                FOR A LIMITED TIME ONLY!
+            </div>
+
+        </div>
+
+        <div class="special-image">
+            <img src="{{ asset('images/coffee.png') }}" alt="Coffee">
+        </div>
+
+    </div>
+
+</section>
+
+<section id="reviews" class="reviews-section">
+
+    <div class="reviews-header">
+        <div class="reviews-title">
+            <h2>WHAT OUR GUESTS SAY</h2>
+            <img src="{{ asset('images/line.png') }}" alt="" class="reviews-brush">
+        </div>
+        <a href="{{ path('site_reviews') }}" class="view-reviews">VIEW ALL REVIEWS <span>➜</span></a>
+    </div>
+
+    <div class="reviews-container">
+        {% for group in guest_reviews|batch(3) %}
+            <div class="review-group">
+                {% for r in group %}
+                    <div class="review-card">
+                        <div class="review-top">
+                            <img src="{{ asset('images/quote.png') }}" alt="" class="quote-icon">
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p class="review-text">{{ r.text }}</p>
+                        <div class="customer">
+                            <img src="{{ asset('images/' ~ r.image) }}" alt="{{ r.name }}" class="customer-image">
+                            <div>
+                                <p class="customer-name">{{ r.name }}</p>
+                                <p class="customer-location">{{ r.location }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="review-dots">
+        {% for group in guest_reviews|batch(3) %}
+            <span class="review-dot{{ loop.first ? ' active' : '' }}"></span>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,96 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Reviews | Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/reviews.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="all-reviews-header">
+    <p class="all-reviews-label">HEAR FROM OUR GUESTS</p>
+    <h1>WHAT OUR <span>GUESTS SAY.</span></h1>
+    <p>See what our guests have to say about their experience at Maturan's Art Cafe.</p>
+</section>
+
+<section class="submit-review-section">
+    <div class="submit-review-container">
+        <p class="all-reviews-label">SHARE YOUR EXPERIENCE</p>
+        <h2>LEAVE A <span>REVIEW.</span></h2>
+        <p>We would love to hear about your experience at Maturan's Art Cafe.</p>
+
+        {% if logged_in %}
+            {# TODO (later): replace with a Symfony FormType (ReviewType) #}
+            <form method="post">
+                <div class="review-rating">
+                    <label for="rating">YOUR RATING</label>
+                    <select name="rating" id="rating" required>
+                        <option value="">Select a rating</option>
+                        <option value="5">★★★★★ - Excellent</option>
+                        <option value="4">★★★★ - Very Good</option>
+                        <option value="3">★★★ - Good</option>
+                        <option value="2">★★ - Fair</option>
+                        <option value="1">★ - Poor</option>
+                    </select>
+                </div>
+
+                <div class="review-message">
+                    <label for="review_text">YOUR REVIEW</label>
+                    <textarea name="review_text" id="review_text" rows="6" maxlength="2000" placeholder="Tell us about your experience..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-review-btn">SUBMIT REVIEW</button>
+            </form>
+        {% else %}
+            <div class="review-login-message">
+                <p>Please log in to share your experience.</p>
+                <a href="{{ path('site_login', {from: 'review'}) }}">LOG IN TO WRITE A REVIEW</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="all-reviews-section">
+    <div class="all-reviews-grid">
+
+        {% for r in guest_reviews %}
+            <div class="all-review-card">
+                <div class="all-review-top">
+                    <img src="{{ asset('images/quote.png') }}" alt="" class="quote-icon">
+                    <div class="stars">★★★★★</div>
+                </div>
+                <p class="all-review-text">{{ r.text }}</p>
+                <div class="all-customer">
+                    <img src="{{ asset('images/' ~ r.image) }}" alt="{{ r.name }}" class="all-customer-image">
+                    <div>
+                        <p class="all-customer-name">{{ r.name }}</p>
+                        <p class="all-customer-location">{{ r.location }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        {# Reviews submitted through the site and approved by admin (empty until a database exists). #}
+        {% for review in approved_reviews %}
+            <div class="all-review-card">
+                <div class="all-review-top">
+                    <img src="{{ asset('images/quote.png') }}" alt="" class="quote-icon">
+                    <div class="stars">{% for i in 1..review.rating %}★{% endfor %}</div>
+                </div>
+                <p class="all-review-text">{{ review.text }}</p>
+                <div class="all-customer">
+                    <div class="all-customer-image user-review-avatar">{{ review.name|first|upper }}</div>
+                    <div>
+                        <p class="all-customer-name">{{ review.name }}</p>
+                        <p class="all-customer-location">Customer</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+</section>
+
+<section class="reviews-back">
+    <a href="{{ path('site_home') }}">← BACK TO HOME</a>
+</section>
+
+{% endblock %}

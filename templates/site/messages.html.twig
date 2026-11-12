@@ -1,0 +1,55 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}My Messages - Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/my_messages.css') }}">{% endblock %}
+
+{% block content %}
+
+<main class="my-messages-page">
+
+    <div class="my-messages-header">
+        <h1>MY <span>MESSAGES.</span></h1>
+        <p>View your conversation with Maturan's Art Cafe and reply anytime.</p>
+    </div>
+
+    {% if threads is not empty %}
+        {% for thread in threads %}
+            <div class="my-message-card">
+
+                <div class="my-message-top">
+                    <div class="my-message-subject">{{ thread.subject }}</div>
+                    <div class="my-message-status">{{ thread.status }}</div>
+                </div>
+
+                <div class="my-message-date">Started on: {{ thread.created_at }}</div>
+
+                <div class="conversation-thread">
+                    <div class="thread-bubble thread-mine">
+                        <div class="thread-bubble-meta">You &middot; {{ thread.created_at|date('M j, Y g:i A') }}</div>
+                        <div class="thread-bubble-text">{{ thread.message|nl2br }}</div>
+                    </div>
+
+                    {% for reply in thread.replies %}
+                        {% set is_admin = reply.sender == 'admin' %}
+                        <div class="thread-bubble {{ is_admin ? 'thread-cafe' : 'thread-mine' }}">
+                            <div class="thread-bubble-meta">{{ is_admin ? "Maturan's Art Cafe" : 'You' }} &middot; {{ reply.created_at|date('M j, Y g:i A') }}</div>
+                            <div class="thread-bubble-text">{{ reply.text|nl2br }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <form method="post" class="my-reply-form">
+                    <input type="hidden" name="message_id" value="{{ thread.id }}">
+                    <textarea name="reply_text" class="my-reply-input" placeholder="Write a reply..." required></textarea>
+                    <button type="submit" class="my-reply-button">SEND</button>
+                </form>
+
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="no-messages">You don't have any messages yet.</div>
+    {% endif %}
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,396 @@
+.menu-page-hero {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    background: var(--pink);
+    overflow: hidden;
+}
+
+
+/* LEFT SIDE */
+
+.menu-hero-content {
+    width: 50%;
+    padding: 60px 50px 60px 80px;
+}
+
+.menu-small {
+    color: var(--orange);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.menu-hero-content h1 {
+    color: var(--brown);
+    font-size: 75px;
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.menu-hero-content h1 span {
+    color: var(--orange);
+}
+
+.menu-description {
+    max-width: 400px;
+    color: var(--dark-text);
+    font-size: 15px;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+
+/* RIGHT SIDE */
+
+.menu-hero-image {
+    width: 50%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 40px 0 0 40px;
+}
+
+.menu-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =========================================
+   MENU SECTIONS
+========================================= */
+
+.menu-section {
+    width: 100%;
+    padding: 65px 7%;
+    background: var(--white);
+}
+
+.menu-pastries {
+    background: var(--beige);
+}
+
+.menu-section-header {
+    margin-bottom: 40px;
+}
+
+.menu-section-header h2 span {
+    color: var(--orange);
+}
+
+.menu-line {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+
+/* =========================================
+   MENU PRODUCTS
+========================================= */
+
+.menu-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    width: 100%;
+}
+
+
+/* PRODUCT CARD */
+
+.menu-product-card {
+    flex: 1 1 280px;
+    max-width: calc(33.333% - 17px);
+    background: var(--cream);
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.menu-product-card:hover {
+    transform: translateY(-5px);
+}
+
+.menu-product-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.menu-product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.menu-product-info {
+    padding: 20px 20px 25px;
+    text-align: center;
+}
+
+.menu-product-info h3 {
+    color: var(--brown);
+    font-size: 19px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.menu-product-info p {
+    min-height: 45px;
+    color: var(--dark-text);
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.menu-product-info strong {
+    color: var(--orange);
+    font-size: 18px;
+}
+
+
+/* =========================================
+   TEXT CARDS
+========================================= */
+
+.menu-text-card {
+    flex: 1 1 280px;
+    max-width: calc(33.333% - 17px);
+    min-height: 400px;
+    padding: 45px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--cream);
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.menu-card-label {
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.menu-text-card h3 {
+    color: var(--brown);
+    font-size: 38px;
+    line-height: 1.05;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.menu-text-card h3 span {
+    color: var(--orange);
+}
+
+.menu-text-card > p:not(.menu-card-label) {
+    color: var(--dark-text);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* DARK CARD */
+
+.dark-menu-card {
+    background: #754326;
+}
+
+.dark-menu-card .menu-card-label,
+.dark-menu-card h3,
+.dark-menu-card > p {
+    color: var(--white);
+}
+
+.dark-menu-card h3 span {
+    color: #ffb39d;
+}
+
+
+/* =========================================
+   MENU CTA
+========================================= */
+
+.menu-cta {
+    width: 100%;
+    padding: 80px 30px;
+    text-align: center;
+    background: var(--white);
+}
+
+.menu-cta h2 {
+    color: var(--brown);
+    font-size: 50px;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.menu-cta h2 span {
+    color: var(--orange);
+}
+
+.menu-cta p {
+    max-width: 500px;
+    margin: 0 auto 25px;
+    color: var(--dark-text);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+.menu-section-header {
+    margin-bottom: 40px;
+}
+
+.menu-line {
+    width: 80px;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+}
+
+.menu-section-header h2 {
+    color: var(--brown);
+    font-size: 35px;
+    letter-spacing: 2px;
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.menu-section-header .heart-icon {
+    width: 30px;
+    height: auto;
+    display: inline-block;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.menu-section-header .menu-line {
+    width: 80px;
+    height: auto;
+    display: block;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* Hero */
+    .menu-page-hero {
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .menu-hero-content {
+        width: 100%;
+        padding: 45px 25px 30px;
+    }
+
+    .menu-hero-content h1 {
+        font-size: 44px;
+    }
+
+    .menu-description {
+        max-width: 100%;
+    }
+
+    .menu-hero-image {
+        width: 100%;
+        height: 260px;
+        border-radius: 0;
+    }
+
+    /* Sections */
+    .menu-section {
+        padding: 45px 6% 50px;
+    }
+
+    .menu-section-header {
+        margin-bottom: 25px;
+    }
+
+    .menu-section-header h2 {
+        font-size: 26px;
+        white-space: normal;
+    }
+
+    .menu-products {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .menu-product-card,
+    .menu-text-card {
+        max-width: 100%;
+    }
+
+    .menu-product-image {
+        height: 230px;
+    }
+
+    .menu-text-card {
+        min-height: 0;
+        padding: 35px 25px;
+    }
+
+    .menu-text-card h3 {
+        font-size: 30px;
+    }
+
+    /* CTA */
+    .menu-cta {
+        padding: 50px 25px;
+    }
+
+    .menu-cta h2 {
+        font-size: 32px;
+    }
+
+    .menu-cta p {
+        max-width: 100%;
+    }
+}
+
+/* =====================================
+   DYNAMIC MENU ADDITIONS
+===================================== */
+
+.menu-no-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1ebe6;
+    color: #998c85;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.menu-empty-message {
+    width: 100%;
+    text-align: center;
+    color: #998c85;
+    font-size: 13px;
+    padding: 20px 0;
+}

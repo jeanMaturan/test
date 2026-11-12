@@ -1,0 +1,47 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}My Artworks | Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/artist_artworks.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="artist-artworks-page">
+
+    <div class="artist-artworks-header">
+        <p class="section-label">WELCOME, ARTIST</p>
+        <h1>{{ artist_name }}'s <span>Artworks</span></h1>
+        <p>Add your artwork below so guests can discover your work in our gallery.</p>
+    </div>
+
+    <div class="artist-artwork-form-card">
+        {# TODO (later): replace with a Symfony FormType (ArtworkType) with file upload #}
+        <form method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="title">ARTWORK TITLE</label>
+                <input type="text" id="title" name="title" placeholder="Enter artwork title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">DESCRIPTION</label>
+                <textarea id="description" name="description" rows="5" placeholder="Enter a short description of the artwork"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="price">PRICE</label>
+                <input type="number" id="price" name="price" placeholder="0.00" min="0" step="0.01" required>
+            </div>
+
+            <div class="form-group">
+                <label for="artwork_image">ARTWORK IMAGE</label>
+                <input type="file" id="artwork_image" name="artwork_image" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" required>
+                <small>JPG, PNG, or WEBP only.</small>
+            </div>
+
+            <button type="submit" class="artist-submit-button">ADD ARTWORK</button>
+        </form>
+    </div>
+
+</section>
+
+{% endblock %}

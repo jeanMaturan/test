@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Maturan's Art Cafe{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {% block page_css %}{% endblock %}
+</head>
+<body>
+
+{% include 'site/_header.html.twig' %}
+
+{% block content %}{% endblock %}
+
+{% include 'site/_footer.html.twig' with { show_newsletter: show_newsletter|default(false) } only %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/site.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,447 @@
+.events-page-hero {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    background: var(--pink);
+    overflow: hidden;
+}
+
+
+/* LEFT SIDE */
+
+.events-hero-content {
+    width: 50%;
+    padding: 60px 50px 60px 80px;
+}
+
+.events-small {
+    color: var(--orange);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.events-hero-content h1 {
+    color: var(--brown);
+    font-size: 75px;
+    line-height: 0.95;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.events-hero-content h1 span {
+    color: var(--orange);
+}
+
+.events-description {
+    max-width: 400px;
+    color: var(--dark-text);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+
+/* RIGHT IMAGE */
+
+.events-hero-image {
+    width: 50%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 40px 0 0 40px;
+}
+
+.events-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* =========================================
+   UPCOMING EVENTS
+========================================= */
+
+.events-section {
+    width: 100%;
+    padding: 70px 8%;
+    background: var(--white);
+}
+
+.events-heading {
+    margin-bottom: 40px;
+}
+
+.events-heading h2 {
+    color: var(--brown);
+    font-size: 42px;
+    line-height: 1.2;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.events-heading h2 span {
+    color: var(--orange);
+}
+
+.events-line {
+    width: 80px;
+    display: block;
+}
+
+
+/* EVENT CARD */
+
+.event-page-card {
+    width: 100%;
+    min-height: 420px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 30px;
+    background: #754326;
+    box-shadow: var(--shadow);
+}
+
+.event-page-image {
+    width: 50%;
+    min-height: 420px;
+}
+
+.event-page-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.event-page-info {
+    width: 50%;
+    padding: 45px 50px;
+    color: var(--white);
+}
+
+.event-page-label {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.event-page-info h3 {
+    font-family: cursive;
+    font-size: 48px;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.event-page-info h3 span {
+    color: #ffb39d;
+}
+
+.event-page-description {
+    max-width: 450px;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.event-details {
+    margin-bottom: 25px;
+}
+
+.event-details p {
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.event-page-btn {
+    display: inline-block;
+    padding: 12px 22px;
+    background: var(--white);
+    color: #5b321e;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.event-page-btn:hover {
+    background: var(--orange);
+    color: var(--white);
+}
+
+
+/* =========================================
+   SPECIAL OFFER
+========================================= */
+
+.events-special {
+    width: 100%;
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--beige);
+}
+
+.special-page-content {
+    width: 58%;
+    padding: 60px 8%;
+}
+
+.special-page-content h2 {
+    color: var(--brown);
+    font-size: 75px;
+    line-height: 1;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+
+.special-page-content h2 span {
+    color: var(--orange);
+}
+
+.special-page-content h3 {
+    color: var(--brown);
+    font-size: 22px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.special-page-content > p {
+    max-width: 400px;
+    color: var(--dark-text);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.special-page-badge {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--orange);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.special-page-image {
+    width: 42%;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.special-page-image img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   EVENTS CTA
+========================================= */
+
+.events-cta {
+    width: 100%;
+    padding: 80px 30px;
+    text-align: center;
+    background: var(--white);
+}
+
+.events-cta h2 {
+    color: var(--brown);
+    font-size: 48px;
+    line-height: 1.1;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.events-cta h2 span {
+    color: var(--orange);
+}
+
+.events-cta p {
+    max-width: 500px;
+    margin: 0 auto 25px;
+    color: var(--dark-text);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   ARTIST BUTTONS
+========================================= */
+
+.event-action-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.event-action-buttons .artist-join-btn {
+    margin: 0 !important;
+}
+
+.event-action-buttons .artist-join-btn,
+.event-action-buttons .artist-gallery-btn {
+    display: inline-block;
+    margin: 0 !important;
+    padding: 13px 22px;
+    box-sizing: border-box;
+}
+
+.event-action-buttons .artist-gallery-btn {
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+    background: var(--orange);
+    color: var(--white);
+    padding: 15px 20px;
+    border-radius: 7px;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.event-action-buttons .artist-gallery-btn:hover {
+    background: var(--orange-dark);
+    color: var(--white);
+    border-color: var(--orange-dark);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #24150f;
+}
+
+.navbar a:hover {
+    color: var(--orange);
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    /* Hero */
+    .events-page-hero {
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .events-hero-content {
+        width: 100%;
+        padding: 45px 25px 30px;
+    }
+
+    .events-hero-content h1 {
+        font-size: 44px;
+    }
+
+    .events-description {
+        max-width: 100%;
+    }
+
+    .events-hero-image {
+        width: 100%;
+        height: 260px;
+        border-radius: 0;
+    }
+
+    /* Upcoming Events */
+    .events-section {
+        padding: 45px 6% 50px;
+    }
+
+    .events-heading {
+        margin-bottom: 25px;
+    }
+
+    .events-heading h2 {
+        font-size: 28px;
+    }
+
+    .event-page-card {
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    .event-page-image {
+        width: 100%;
+        min-height: 220px;
+    }
+
+    .event-page-info {
+        width: 100%;
+        padding: 30px 25px;
+    }
+
+    .event-page-info h3 {
+        font-size: 34px;
+    }
+
+    .event-page-description {
+        max-width: 100%;
+    }
+
+    /* Special Offer */
+    .events-special {
+        flex-direction: column;
+        min-height: 0;
+        padding: 40px 0;
+    }
+
+    .special-page-content {
+        width: 100%;
+        padding: 0 8%;
+    }
+
+    .special-page-content h2 {
+        font-size: 44px;
+    }
+
+    .special-page-content > p {
+        max-width: 100%;
+    }
+
+    .special-page-image {
+        width: 100%;
+        height: 220px;
+        margin-top: 20px;
+    }
+
+    /* CTA */
+    .events-cta {
+        padding: 50px 25px;
+    }
+
+    .events-cta h2 {
+        font-size: 32px;
+    }
+
+    .events-cta p {
+        max-width: 100%;
+    }
+}
+
+/* =====================================
+   DYNAMIC EVENTS ADDITIONS
+===================================== */
+
+.events-empty-message {
+    width: 100%;
+    text-align: center;
+    color: #998c85;
+    font-size: 14px;
+    padding: 40px 0;
+}

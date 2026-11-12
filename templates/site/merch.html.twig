@@ -1,0 +1,43 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Merch | Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/merch.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="merch-hero">
+    <p class="merch-label">TAKE A PIECE OF THE CAFE HOME</p>
+    <h1>OUR <span>MERCH.</span></h1>
+    <p class="merch-intro">Bring a little piece of Maturan's Art Cafe with you. Explore our collection of cafe-inspired merchandise.</p>
+</section>
+
+<section class="merch-section">
+    {% if merch_products is empty %}
+        <p class="merch-empty-message">No merch items available right now. Check back soon!</p>
+    {% else %}
+        <div class="merch-grid">
+            {% for product in merch_products %}
+                <div class="merch-card">
+                    <div class="merch-image">
+                        {% if product.image %}
+                            <img src="{{ asset('images/' ~ product.image) }}" alt="{{ product.name }}">
+                        {% else %}
+                            <div class="merch-no-image">NO IMAGE</div>
+                        {% endif %}
+                    </div>
+                    <div class="merch-info">
+                        <h2>{{ product.name|upper }}</h2>
+                        {% if product.description is not empty %}<p>{{ product.description }}</p>{% endif %}
+                        <span class="merch-price">₱{{ product.price|number_format(0) }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>
+
+<section class="merch-back">
+    <a href="{{ path('site_home') }}">← BACK TO HOME</a>
+</section>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'site/base.html.twig' %}
+
+{% set show_newsletter = true %}
+{% block title %}Login - Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/login.css') }}">{% endblock %}
+
+{% block content %}
+
+{# `from` comes from the URL: /login?from=contact|artist|review #}
+<section class="login-page">
+    <div class="login-box">
+
+        <p class="login-label">
+            {% if from == 'contact' %}GET IN TOUCH{% elseif from == 'artist' %}JOIN OUR ARTISTS{% else %}WELCOME BACK{% endif %}
+        </p>
+
+        <h1>LOGIN TO<br>
+            <span>
+                {% if from == 'contact' %}MESSAGE.{% elseif from == 'artist' %}JOIN.{% elseif from == 'review' %}REVIEW.{% else %}RESERVE.{% endif %}
+            </span>
+        </h1>
+
+        <p class="login-description">
+            {% if from == 'contact' %}Log in to your account to send a message to Maturan's Art Cafe.
+            {% elseif from == 'artist' %}Log in to your account to apply as an artist at Maturan's Art Cafe.
+            {% elseif from == 'review' %}Log in to your account to share your experience at Maturan's Art Cafe.
+            {% else %}Log in to your account to reserve a table at Maturan's Art Cafe.{% endif %}
+        </p>
+
+        {# TODO (later): replace with Symfony Security form_login #}
+        <form method="post">
+            <div class="login-group">
+                <label for="email">EMAIL</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+            </div>
+
+            <div class="login-group">
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="password" placeholder="Your password" required>
+            </div>
+
+            <button type="submit" class="login-button">LOGIN</button>
+        </form>
+
+        <p class="login-note">Don't have an account? <a href="{{ path('site_register') }}">CREATE AN ACCOUNT</a></p>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Reserve a Table - Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/reservation.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="reservation-section reservation-page">
+
+    <div class="reservation-content">
+        <p class="logged-user">Logged in as: <strong>{{ user.email }}</strong></p>
+        <p class="contact-small">PLAN YOUR VISIT</p>
+        <h2>RESERVE A <span>TABLE.</span></h2>
+        <p>Planning to visit with friends or family? Reserve your table ahead of time and we'll have a cozy spot ready for you.</p>
+    </div>
+
+    {# TODO (later): replace with a Symfony FormType (ReservationType) #}
+    <form class="reservation-form" method="post" data-fee-per-guest="{{ fee_per_guest }}" data-downpayment-percent="{{ downpayment_percent }}">
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="reservation-name">NAME</label>
+                <p id="reservation-name" class="reservation-name-display">{{ user.name }}</p>
+                <input type="hidden" name="reservation_name" value="{{ user.name }}">
+            </div>
+            <div class="form-group">
+                <label for="reservation-phone">PHONE</label>
+                <input type="tel" id="reservation-phone" name="reservation_phone" placeholder="Your phone number" required>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="date">DATE</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">TIME</label>
+                <input type="time" id="time" name="time" required>
+                {# Table availability is checked by the server later; empty for now. #}
+                <p id="tables-left-msg" class="tables-left-msg"></p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="guests">NUMBER OF GUESTS</label>
+            <p class="guests-hint">Each table seats {{ guests_per_table }} — larger groups may be split across a couple of tables so everyone has a seat.</p>
+            <select id="guests" name="guests" required>
+                <option value="">Select number of guests</option>
+                {% for n in 1..10 %}
+                    <option value="{{ n }}">{{ n }} Guest{{ n == 1 ? '' : 's' }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="payment_type">PAYMENT</label>
+                <select id="payment_type" name="payment_type" required>
+                    <option value="">Select payment option</option>
+                    <option value="Downpayment">Downpayment ({{ downpayment_percent }}%)</option>
+                    <option value="Full">Full Payment</option>
+                </select>
+                <p id="payment-amount-msg" class="form-hint">Select number of guests and a payment option to see the amount due.</p>
+            </div>
+            <div class="form-group">
+                <label for="payment_reference">PAYMENT REFERENCE NUMBER</label>
+                <input type="text" id="payment_reference" name="payment_reference" placeholder="GCash / bank transfer reference no." maxlength="50" required>
+                <p class="form-hint">Please pay via GCash/bank transfer first, then enter the reference number shown on your receipt.</p>
+            </div>
+        </div>
+
+        <button type="submit" id="reservation-submit-btn" class="reservation-submit">RESERVE NOW</button>
+
+    </form>
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/reservation.js') }}"></script>
+{% endblock %}

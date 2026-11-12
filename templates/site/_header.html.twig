@@ -1,0 +1,36 @@
+{# logged_in is passed in by the controller (view-only preview, there is no real login yet). #}
+<header class="header">
+
+    <div class="logo">
+        <a href="{{ path('site_home') }}">
+            <img src="{{ asset('images/logo.png') }}" alt="Maturan's Art Cafe">
+        </a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <nav class="navbar">
+        <a href="{{ path('site_home') }}">HOME</a>
+        <a href="{{ path('site_about') }}">ABOUT</a>
+        <a href="{{ path('site_menu') }}">MENU</a>
+        <a href="{{ path('site_events') }}">EVENTS</a>
+        <a href="{{ path('site_contact') }}">CONTACT</a>
+
+        {% if logged_in|default(false) %}
+            <a href="{{ path('site_messages') }}">MY MESSAGES</a>
+            <a href="{{ path('site_profile') }}">PROFILE</a>
+        {% endif %}
+    </nav>
+
+    {% if logged_in|default(false) %}
+        {% if app.current_route == 'site_profile' %}
+            {# TODO (later): point at the Symfony logout route #}
+            <a href="{{ path('site_login') }}" class="logout-btn">LOGOUT</a>
+        {% else %}
+            <a href="{{ path('site_reservation') }}" class="reserve-btn">RESERVE A TABLE</a>
+        {% endif %}
+    {% else %}
+        <a href="{{ path('site_login') }}" class="reserve-btn">RESERVE A TABLE</a>
+    {% endif %}
+
+</header>

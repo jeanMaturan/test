@@ -1,0 +1,69 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Contact - Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/contact.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="contact-page-hero">
+    <div class="contact-hero-content">
+        <p class="contact-small">GET IN TOUCH</p>
+        <h1>LET'S<br><span>CONNECT.</span></h1>
+        <p>Whether you want to grab a coffee, join an event, or simply spend time creating, we'd love to hear from you.</p>
+    </div>
+    <div class="contact-hero-image">
+        <img src="{{ asset('images/mainpic.jpg') }}" alt="Maturan's Art Cafe">
+    </div>
+</section>
+
+<section class="contact-info-section">
+    <div class="contact-info-heading">
+        <p class="section-label">FIND US</p>
+        <h2>COME <span>VISIT.</span></h2>
+    </div>
+
+    <div class="contact-info-container">
+        <div class="contact-info-card">
+            <div class="contact-icon">📍</div>
+            <h3>LOCATION</h3>
+            <p>Jawa, Valencia<br>Negros Oriental</p>
+        </div>
+        <div class="contact-info-card">
+            <div class="contact-icon">☎</div>
+            <h3>PHONE</h3>
+            <p>0958 586 8934</p>
+        </div>
+        <div class="contact-info-card">
+            <div class="contact-icon">✉</div>
+            <h3>EMAIL</h3>
+            <p>maturansartcafe@gmail.com</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact-form-section">
+    <div class="contact-form-content">
+        <p class="section-label">WE'D LOVE TO HEAR FROM YOU</p>
+        <h2>SEND US A <span>MESSAGE.</span></h2>
+        <p>Have a question, suggestion, or want to know more about our events? Send us a message.</p>
+    </div>
+
+    {# TODO (later): replace with a Symfony FormType (ContactMessageType) #}
+    <form class="contact-form" method="post">
+
+
+        <div class="form-group">
+            <label for="subject">SUBJECT</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+        </div>
+
+        <div class="form-group">
+            <label for="message">MESSAGE</label>
+            <textarea id="message" name="message" rows="6" placeholder="Write your message..." required></textarea>
+        </div>
+
+        <button type="submit" class="contact-submit">SEND MESSAGE</button>
+    </form>
+</section>
+
+{% endblock %}

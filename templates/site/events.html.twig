@@ -1,0 +1,75 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Events - Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/events.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="events-page-hero">
+    <div class="events-hero-content">
+        <p class="events-small">WHAT'S HAPPENING</p>
+        <h1>CREATE.<br><span>CONNECT.</span><br>ENJOY.</h1>
+        <p class="events-description">Join us for creative events, relaxing evenings, and memorable moments with fellow artists and coffee lovers.</p>
+    </div>
+    <div class="events-hero-image">
+        <img src="{{ asset('images/eventpic.png') }}" alt="Maturan's Art Cafe Event">
+    </div>
+</section>
+
+<section class="events-section">
+    <div class="events-heading">
+        <p class="section-label">MARK YOUR CALENDAR</p>
+        <h2>UPCOMING <span>EVENTS</span></h2>
+        <img src="{{ asset('images/line.png') }}" alt="" class="events-line">
+    </div>
+
+    {% if active_event is null %}
+        <p class="events-empty-message">No upcoming events right now. Check back soon!</p>
+    {% else %}
+        <div class="event-page-card">
+            <div class="event-page-image">
+                <img src="{{ asset('images/' ~ (active_event.image ?: 'eventpic.png')) }}" alt="{{ active_event.name }}">
+            </div>
+            <div class="event-page-info">
+                <p class="event-page-label">UPCOMING EVENT</p>
+                <h3>{{ active_event.name }}</h3>
+
+                {% if active_event.description is not empty %}
+                    <p class="event-page-description">{{ active_event.description|nl2br }}</p>
+                {% endif %}
+
+                <div class="event-details">
+                    {% if active_event.date %}<p>📅 {{ active_event.date|date('F j, Y') }}</p>{% endif %}
+                    {% if active_event.time %}<p>🕔 {{ active_event.time|date('g:i A') }}</p>{% endif %}
+                    {% if active_event.location %}<p>📍 {{ active_event.location }}</p>{% endif %}
+                </div>
+
+                <div class="event-action-buttons">
+                    <a href="{{ path('site_artist_register') }}" class="reserve-btn artist-join-btn">JOIN AS AN ARTIST</a>
+                    <a href="{{ path('site_gallery') }}" class="reserve-btn artist-gallery-btn">VIEW ARTISTS &amp; ARTWORKS</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</section>
+
+<section class="events-special">
+    <div class="special-page-content">
+        <p class="events-small">SPECIAL OFFER</p>
+        <h2>20% <span>OFF</span></h2>
+        <h3>ON ALL DRINKS<br>&amp; PASTRIES</h3>
+        <p>Enjoy your favorite drinks and treats while spending time creating.</p>
+        <div class="special-page-badge">FOR A LIMITED TIME ONLY!</div>
+    </div>
+    <div class="special-page-image">
+        <img src="{{ asset('images/coffee.png') }}" alt="Coffee">
+    </div>
+</section>
+
+<section class="events-cta">
+    <h2>COME CREATE WITH <span>US.</span></h2>
+    <p>Follow our events and join us for creative experiences, great coffee, and good company.</p>
+    <a href="#contact" class="hero-btn">VISIT US</a>
+</section>
+
+{% endblock %}

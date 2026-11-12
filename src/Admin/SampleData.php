@@ -63,32 +63,12 @@ final class SampleData
 
     public static function artworks(): array
     {
-        $a = fn (int $id, string $artist, string $title, string $desc, float $price, string $status, ?string $img) =>
-            compact('id', 'artist', 'title', 'desc', 'price', 'status', 'img');
-
-        return [
-            $a(3, 'Anna Ramos', 'Quiet Harbor', 'Acrylic on canvas, 18x24 in.', 6200, 'Approved', 'pattern2.png'),
-            $a(4, 'Mark Villanueva', 'Coffee Ghosts', '', 950, 'Approved', null),
-            $a(5, 'Kyle Ong', 'Untitled No. 4', 'Mixed media collage.', 2400, 'Rejected', null),
-        ];
+        return [];
     }
 
     public static function products(): array
     {
-        $p = fn (int $id, string $category, string $name, string $desc, float $price, string $status, ?string $image) =>
-            compact('id', 'category', 'name', 'desc', 'price', 'status', 'image');
-
-        return [
-            $p(1, 'Coffee', 'Cappuccino', 'Espresso with steamed milk and a thick foam cap.', 120, 'Active', 'capuccino.jpg'),
-            $p(2, 'Coffee', 'Caramel Macchiato', 'Vanilla, steamed milk, espresso and caramel drizzle.', 145, 'Active', 'caramelmacchiato.png'),
-            $p(3, 'Coffee', 'Mocha Dream', 'Rich chocolate and espresso, topped with cream.', 150, 'Inactive', 'mochadream.jpg'),
-            $p(4, 'Coffee', 'Chocolate Latte', '', 130, 'Active', 'chocolatelatte.png'),
-            $p(5, 'Pastries', 'Butter Croissant', 'Flaky, buttery, baked every morning.', 85, 'Active', 'butterCroissant.jpg'),
-            $p(6, 'Pastries', 'Cinnamon Roll', 'Warm roll with cream cheese glaze.', 95, 'Active', 'cinnamonroll.jpg'),
-            $p(7, 'Merch', 'Cafe T-Shirt', 'Soft cotton tee with the Art Cafe logo.', 450, 'Active', 'shirt.jpg'),
-            $p(8, 'Merch', 'Canvas Tote', 'Everyday tote, screen-printed.', 320, 'Active', 'tote.png'),
-            $p(9, 'Merch', 'Sticker Pack', 'Set of 6 vinyl stickers.', 120, 'Inactive', 'stickers.jpg'),
-        ];
+        return [];
     }
 
     public static function product(int $id): ?array
@@ -104,10 +84,7 @@ final class SampleData
 
     public static function events(): array
     {
-        return [
-            ['id' => 1, 'name' => 'Paint & Sip Night', 'description' => 'Relaxed painting night with live local artists.',
-                'date' => '2026-11-14', 'time' => '18:00', 'location' => "Maturan's Art Cafe", 'status' => 'Active', 'image' => 'eventpic.png'],
-        ];
+        return [];
     }
 
     public static function event(int $id): ?array

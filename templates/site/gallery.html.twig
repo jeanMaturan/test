@@ -1,0 +1,67 @@
+{% extends 'site/base.html.twig' %}
+
+{% block title %}Artists &amp; Artworks - Maturan's Art Cafe{% endblock %}
+{% block page_css %}<link rel="stylesheet" href="{{ asset('css/site/artist_gallery.css') }}">{% endblock %}
+
+{% block content %}
+
+<section class="artist-gallery-hero">
+    <div class="artist-gallery-hero-content">
+        <p class="section-label">MEET THE ARTISTS</p>
+        <h1>ARTISTS &amp;<br><span>ARTWORKS.</span></h1>
+        <p>Discover the talented artists joining us at Maturan's Art Cafe and explore their creative works.</p>
+    </div>
+</section>
+
+<section class="artist-gallery-section">
+
+    <div class="artist-gallery-heading">
+        <p class="section-label">CREATIVE MINDS</p>
+        <h2>OUR <span>ARTISTS</span></h2>
+        <img src="{{ asset('images/line.png') }}" alt="" class="artist-gallery-line">
+    </div>
+
+    {% if artists is empty %}
+        <div class="no-artists-message">
+            <h3>NO ARTISTS YET</h3>
+            <p>Approved artists and their artworks will appear here.</p>
+        </div>
+    {% else %}
+        {% for artist in artists %}
+            <div class="artist-gallery-artist">
+
+                <div class="artist-gallery-artist-info">
+                    <h3>{{ artist.name }}</h3>
+                    {% if artist.bio is not empty %}<p>{{ artist.bio|nl2br }}</p>{% endif %}
+                </div>
+
+                <div class="artist-artworks-grid">
+                    {% for artwork in artist.artworks %}
+                        <div class="public-artwork-card">
+                            <div class="public-artwork-image">
+                                {% if artwork.image %}
+                                    <img src="{{ asset('images/' ~ artwork.image) }}" alt="{{ artwork.title }}">
+                                {% else %}
+                                    <div class="no-artwork-image">NO IMAGE</div>
+                                {% endif %}
+                            </div>
+                            <div class="public-artwork-info">
+                                <h4>{{ artwork.title }}</h4>
+                                {% if artwork.description is not empty %}<p>{{ artwork.description|nl2br }}</p>{% endif %}
+                                <div class="public-artwork-price">₱{{ artwork.price|number_format(2) }}</div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        {% endfor %}
+    {% endif %}
+
+</section>
+
+<section class="artist-gallery-back">
+    <a href="{{ path('site_events') }}" class="hero-btn">← BACK TO EVENTS</a>
+</section>
+
+{% endblock %}

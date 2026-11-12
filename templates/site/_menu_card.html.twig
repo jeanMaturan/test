@@ -1,0 +1,16 @@
+{# One menu product card. Expects: product (name, description, price, image) #}
+<div class="menu-product-card">
+    <div class="menu-product-image">
+        {% if product.image %}
+            {# TODO (later): uploaded product images will live in public/uploads/products/ #}
+            <img src="{{ asset('images/' ~ product.image) }}" alt="{{ product.name }}">
+        {% else %}
+            <div class="menu-no-image">NO IMAGE</div>
+        {% endif %}
+    </div>
+    <div class="menu-product-info">
+        <h3>{{ product.name }}</h3>
+        {% if product.description is not empty %}<p>{{ product.description }}</p>{% endif %}
+        <strong>₱{{ product.price|number_format(0) }}</strong>
+    </div>
+</div>
